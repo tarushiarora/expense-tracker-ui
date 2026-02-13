@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* for global "Dark mode" */
+body{
+    background-color: #121212;
+    color:#e0e0e0;
+    font-family: 'Segoe UI' , sans-serif;
+    margin:0;
+}

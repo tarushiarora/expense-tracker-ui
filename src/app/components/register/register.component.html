@@ -1,0 +1,33 @@
+<div class="login-wrapper">
+    <div class="login-card">
+        <h2>Create account</h2>
+        <p>Join the expense tracker</p>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+            <label>Username</label>
+            <input type="text" formControlName="username" placeholder="your name goes here">
+            <div class="error" *ngIf="registrationForm.get('username')?.touched && registrationForm.get('username')?.invalid">
+                Username is required 
+            </div>
+
+            <label>Email</label>
+            <input type="email" formControlName="email" placeholder="Your email goes here">
+            <div class="error" *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.invalid">
+                Please enter a valid email
+            </div>
+
+            <label>Password</label>
+            <input type="password" formControlName="password" placeholder="Min 6 characters">
+            <div class="error" *ngIf="registrationForm.get('password')?.touched && registrationForm.get('password')?.invalid">
+                Password must be at least 6 characters
+            </div>
+
+            <button type="submit" class="login-btn" [disabled]="registrationForm.invalid">
+                Register
+            </button>
+
+            <p style="margin-top: 1rem; font-size: 0.9rem;">Already have an account? <a href="/login" style="color: #00ff88;">Login</a>
+            </p>
+        </form>
+    </div>
+</div>

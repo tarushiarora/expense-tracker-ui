@@ -1,0 +1,28 @@
+<div class="login-wrapper">
+  <div class="login-card">
+
+<h2>Welcome back</h2>
+<p>Please login to your account</p>
+
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+    <label>Username</label>
+    <input type="text" formControlName="username" placeholder="name goes here">
+
+    <div class="error" *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
+        Username is required
+    </div>
+
+    <label>Password</label>
+    <input type="password" formControlName="password" placeholder="password goes here">
+    <div class="error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+        Password is required
+    </div>
+
+    <button type="submit" class="login-btn" [disabled]="loginForm.invalid">
+        Login
+    </button>
+</form>
+
+</div>
+</div>
