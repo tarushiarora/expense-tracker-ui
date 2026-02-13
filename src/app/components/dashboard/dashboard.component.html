@@ -15,10 +15,10 @@
             <tr>
                 <td>{{ item.date }}</td>
                 <td>{{ item.description }}</td>
-                <td [style.color]="item.type === 'INCOME' ? '#00ff88' : '#ef4444'">
-                    {{ item.type === 'INCOME' ? '+' : '-' }} ₹{{ item.amount }}
+                <td [style.color]="item.category.type === 'INCOME' ? '#00ff88' : '#ef4444'">
+                    {{ item.category.type === 'INCOME' ? '+' : '-' }} ₹{{ item.amount }}
                 </td>
-                <td><span class="badge">{{ item.type }}</span></td>
+                <td><span class="badge">{{ item.category.name }}</span></td>
             </tr>
             } @empty {
             <tr>
