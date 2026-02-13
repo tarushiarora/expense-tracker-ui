@@ -1,0 +1,58 @@
+:host {
+  display: block;
+  width: 260px; /* Fixed width for the sidebar */
+  background-color: #1e1e1e;
+  border-right: 1px solid #333;
+  height: 100vh;
+}
+
+.sidebar {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ff88; /* Neon green logo */
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  color: #bbb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+nav li:hover {
+  background: #2a2a2a;
+  color: #00ff88;
+}
+
+nav li.active {
+  background: rgba(0, 255, 136, 0.1); /* Subtle green tint */
+  color: #00ff88;
+}
+
+.logout-item {
+  margin-top: auto; /* Pushes logout to the bottom */
+  color: #ff5252;
+}
+
+.logout-item:hover {
+  background: rgba(255, 82, 82, 0.1);
+  color: #ff5252;
+}
