@@ -15,6 +15,11 @@ import { RouterLink } from '@angular/router';
 export class DashboardComponent implements OnInit {
   transactions: Transaction[] = [];
 
+  // defining variables for summary
+  totalBalance: number = 0;
+  totalIncome: number = 0;
+  totalExpense: number = 0;
+
   constructor(private transactionService: TransactionService) {}
 
   ngOnInit(): void {
@@ -30,6 +35,20 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  // math calculation
+  calculateTotals(){
+    this.totalIncome = this.transactions
+    .filter(t => t.category.type === 'INCOME')
+    .reduce((sum,t) => sum + t.amount,0);
+    // sum: accumulator, t: currTransaction, 0: startingvalue
+
+    this.totalExpense = this.transactions
+    .filter(t => t.category.type === 'EXPENSE')
+    .reduce((sum,t) => sum + t.amount,0);
+
+    this.totalBalance = this.totalIncome - this.totalExpense;
+  }
+
   confirmDelete(id: number | undefined) {
     if (!id) return;
 
@@ -37,14 +56,16 @@ export class DashboardComponent implements OnInit {
       this.transactionService.deleteTransaction(id).subscribe({
         next: () => {
           // Topic: Filtering arrays to update UI
-          // We filter out the deleted ID so it vanishes from the screen
+          // We filter out the deleted ID to compute new totals
           this.transactions = this.transactions.filter((t) => t.id !== id);
+    
+          this.calculateTotals();
           console.log('Transaction deleted successfully');
         },
         error: (err) => {
           console.error('Delete failed:', err);
           alert(
-            'Could not delete. Make sure your Spring Boot delete endpoint is ready!',
+            'Could not delete. Please check if server is running.',
           );
         },
       });
