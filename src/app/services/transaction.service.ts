@@ -31,4 +31,9 @@ export class TransactionService {
       headers: this.getHeaders(),
     });
   }
+
+  deleteTransaction(id:number): Observable<any>{
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url, {headers: this.getHeaders()});
+  }
 }

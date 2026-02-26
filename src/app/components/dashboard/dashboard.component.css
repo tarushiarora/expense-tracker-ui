@@ -86,3 +86,19 @@
   transform: scale(1.05);
   background: #00e67a;
 }
+
+.delete-btn {
+  background: transparent;
+  color: #ff5252;
+  border: 1px solid #ff5252;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  background: #ff5252;
+  color: white;
+}

@@ -29,4 +29,25 @@ export class DashboardComponent implements OnInit {
       error: (err) => console.error('Could not load transactions', err),
     });
   }
+
+  confirmDelete(id: number | undefined) {
+    if (!id) return;
+
+    if (confirm('Are you sure you want to delete this transaction?')) {
+      this.transactionService.deleteTransaction(id).subscribe({
+        next: () => {
+          // Topic: Filtering arrays to update UI
+          // We filter out the deleted ID so it vanishes from the screen
+          this.transactions = this.transactions.filter((t) => t.id !== id);
+          console.log('Transaction deleted successfully');
+        },
+        error: (err) => {
+          console.error('Delete failed:', err);
+          alert(
+            'Could not delete. Make sure your Spring Boot delete endpoint is ready!',
+          );
+        },
+      });
+    }
+  }
 }
