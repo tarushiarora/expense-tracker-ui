@@ -1,0 +1,50 @@
+<div class="form-page-wrapper">
+    <div class="form-container">
+        <a routerLink="/dashboard" class="back-link">← Back to Dashboard</a>
+
+        @if(saveSuccess){
+            <div class="success-banner">
+                <span class="icon">✅</span>
+                Transaction saved! Redirecting to your Dashboard...
+            </div>
+        }
+
+        <div class="form-card">
+            <h3>Add New Transaction</h3>
+
+            <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>I want to add an...</label>
+                    <select formControlName="type">
+                        <option value="EXPENSE">Expense</option>
+                        <option value="INCOME">Income</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select formControlName="categoryId">
+                        <option value="">Select Category</option>
+                        @for (cat of filteredCategories; track cat.id) {
+                        <option [value]="cat.id">{{ cat.name }}</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Amount (₹)</label>
+                    <input type="number" formControlName="amount" placeholder="0.00">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" formControlName="description" placeholder="What was this for?">
+                </div>
+
+                <button type="submit" class="save-btn" [disabled]="transactionForm.invalid">
+                    Save Transaction
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

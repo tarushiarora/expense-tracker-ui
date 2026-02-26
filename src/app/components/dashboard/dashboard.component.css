@@ -70,3 +70,19 @@
   border-radius: 4px;
   font-size: 0.75rem;
 }
+
+.add-btn {
+  background: #00ff88;
+  color: #121212;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+  background: #00e67a;
+}
