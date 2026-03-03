@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
     this.transactionService.getTransactions().subscribe({
       next: (data) => {
         this.transactions = data;
+        this.calculateTotals();
       },
       error: (err) => console.error('Could not load transactions', err),
     });
@@ -38,12 +39,12 @@ export class DashboardComponent implements OnInit {
   // math calculation
   calculateTotals(){
     this.totalIncome = this.transactions
-    .filter(t => t.category.type === 'INCOME')
+    .filter(t => t.category?.type === 'INCOME')
     .reduce((sum,t) => sum + t.amount,0);
     // sum: accumulator, t: currTransaction, 0: startingvalue
 
     this.totalExpense = this.transactions
-    .filter(t => t.category.type === 'EXPENSE')
+    .filter(t => t.category?.type === 'EXPENSE')
     .reduce((sum,t) => sum + t.amount,0);
 
     this.totalBalance = this.totalIncome - this.totalExpense;
@@ -51,7 +52,7 @@ export class DashboardComponent implements OnInit {
 
   confirmDelete(id: number | undefined) {
     if (!id) return;
-
+    
     if (confirm('Are you sure you want to delete this transaction?')) {
       this.transactionService.deleteTransaction(id).subscribe({
         next: () => {

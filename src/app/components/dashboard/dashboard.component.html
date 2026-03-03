@@ -3,6 +3,24 @@
     <button routerLink="/add-transaction" class="add-btn">+ Add Transaction</button>
 </header>
 
+<section class="stats-grid">
+
+    <div class="stat-card balance">
+    <small>Net Balance</small>
+    <h2>₹{{ totalBalance }}</h2>
+    </div>
+
+    <div class="stat-card income">
+    <small>Total Income</small>
+    <h2 style="color: #00ff88;">+ ₹{{ totalIncome }}</h2>
+    </div>
+
+    <div class="stat-card expense">
+    <small>Total Expenses</small>
+    <h2 style="color: #ef4444;">- ₹{{ totalExpense }}</h2>
+    </div>
+</section>
+
 <div class="transaction-container">
     <h3>Recent Transactions</h3>
 
@@ -21,9 +39,11 @@
             <tr>
                 <td>{{ item.date }}</td>
                 <td>{{ item.description }}</td>
+
                 <td [style.color]="item.category.type === 'INCOME' ? '#00ff88' : '#ef4444'">
                     {{ item.category.type === 'INCOME' ? '+' : '-' }} ₹{{ item.amount }}
                 </td>
+                
                 <td><span class="badge">{{ item.category.name }}</span></td>
 
                 <td>
