@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { TransactionService } from '../../services/transaction.service';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../models/transaction.model';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-add-transaction',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './add-transaction.component.html',
   styleUrl: './add-transaction.component.css'
 })
