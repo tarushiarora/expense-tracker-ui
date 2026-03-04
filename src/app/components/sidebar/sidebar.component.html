@@ -1,11 +1,23 @@
 <div class="sidebar">
-    <div class="logo">TrackWise💸</div>
+    <div class="logo">
+        <h3>TrackWise💸</h3>
+    </div>
     <nav>
         <ul>
-            <li class="active">Dashboard</li>
-            <li>Transactions</li>
-            <li>Categories</li>
-            <li class="logout-item" (click)="onLogout()">Logout</li>
+            <li routerLink="/dashboard" routerLinkActive="active">
+                <span class="icon">📊</span> Dashboard
+            </li>
+            <li routerLink="/transactions" routerLinkActive="active">
+                <span class="icon">💸</span> Transactions
+            </li>
+            
+            <li routerLink="/categories" routerLinkActive="active">
+                <span class="icon">🏷️</span> Categories
+            </li>
+            
+            <li class="logout-item" (click)="onLogout()">
+                <span class="icon">🚪</span> Logout
+            </li>
         </ul>
     </nav>
 </div>

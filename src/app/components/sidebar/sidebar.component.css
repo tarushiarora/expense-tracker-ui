@@ -28,23 +28,25 @@ nav ul {
 }
 
 nav li {
-  padding: 0.8rem 1rem;
-  margin-bottom: 0.5rem;
-  border-radius: 8px;
-  color: #bbb;
+  padding: 1rem 1.5rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   transition: all 0.3s ease;
-  font-weight: 500;
+  border-left: 4px solid transparent;
+  color: #bbb;
 }
 
 nav li:hover {
   background: #2a2a2a;
-  color: #00ff88;
+  color: #fff;
 }
 
 nav li.active {
-  background: rgba(0, 255, 136, 0.1); /* Subtle green tint */
+  background: rgba(0, 255, 136, 0.1);
   color: #00ff88;
+  border-left: 4px solid #00ff88;
 }
 
 .logout-item {
@@ -53,6 +55,5 @@ nav li.active {
 }
 
 .logout-item:hover {
-  background: rgba(255, 82, 82, 0.1);
-  color: #ff5252;
+  color: #ef4444;
 }
