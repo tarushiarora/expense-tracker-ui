@@ -1,7 +1,7 @@
 <div class="login-wrapper">
   <div class="login-card">
-
-<h2>Welcome back</h2>
+<div class="logo">TrackWise💸</div>
+<h3>Welcome back</h3>
 <p>Please login to your account</p>
 
 <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -24,5 +24,9 @@
     </button>
 </form>
 
+<div class="register-link-container">
+    <p>Don't have an account?</p>
+    <a routerLink="/register" class="register-link">Create an account</a>
+</div>
 </div>
 </div>

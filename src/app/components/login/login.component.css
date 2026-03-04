@@ -1,3 +1,41 @@
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ff88; 
+  letter-spacing: 1px;
+}
+
+.register-link-container {
+    margin-top: 1.5rem;
+    text-align: center;
+    border-top: 1px solid #333; 
+    padding-top: 1rem;
+}
+
+.register-link-container p {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.register-link {
+    color: #00ff88; /* Matching your neon green theme */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.register-link:hover {
+    text-decoration:underline;
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+}
+
+.error {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin: 0.2rem 0 1rem 0;
+}
+
 .login-wrapper {
   display: flex;
   justify-content: center;
