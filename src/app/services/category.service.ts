@@ -3,22 +3,35 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from '../models/transaction.model';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class CategoryService {
-
   private apiUrl = '/api/categories';
 
-  constructor(private http: HttpClient) { }
-  
+  constructor(private http: HttpClient) {}
+
   // to attach JWT token for security
-  private getHeaders(){
+  private getHeaders() {
     const token = localStorage.getItem('token');
     return new HttpHeaders().set('Authorization', `Bearer ${token}`);
   }
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.apiUrl, {headers: this.getHeaders()});
+    return this.http.get<Category[]>(this.apiUrl, {
+      headers: this.getHeaders(),
+    });
   }
+
+  addCategory(category: any): Observable<any> {
+    return this.http.post(this.apiUrl, category, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  deleteCategory(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`, {
+      headers: this.getHeaders(),
+    });
+  }
+  
 }

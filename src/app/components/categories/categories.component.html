@@ -1,0 +1,44 @@
+<div class="dashboard-layout">
+    <app-sidebar></app-sidebar>
+
+    <main class="main-content">
+        <header class="top-nav">
+            <h1>Manage Categories</h1>
+        </header>
+
+        <div class="category-grid">
+            <div class="category-card add-card">
+                <h3>Create New Label</h3>
+                <form [formGroup]="categoryForm" (ngSubmit)="onAddCategory()">
+                    <div class="form-group">
+                        <label>Name: </label>
+                        <input type="text" formControlName="name" placeholder="e.g. Gym, Salary, Rent">
+                    </div>
+                    <div class="form-group">
+                        <label>Type: </label>
+                        <select formControlName="type">
+                            <option value="EXPENSE">Expense</option>
+                            <option value="INCOME">Income</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="save-btn" [disabled]="categoryForm.invalid">
+                        Add Category
+                    </button>
+                </form>
+            </div>
+
+            <div class="category-card list-card">
+                <h3>Your Labels</h3>
+                <div class="label-list">
+                    @for (cat of categories; track cat.id) {
+                    <div class="label-item">
+                        <span class="dot" [style.background]="cat.type === 'INCOME' ? '#00ff88' : '#ef4444'"></span>
+                        <span class="label-name">{{ cat.name }}</span>
+                        <button class="mini-delete" (click)="onDelete(cat.id)">✕</button>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,83 @@
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #121212;
+}
+
+.main-content {
+    flex: 1; /* This fills the space next to the sidebar */
+    padding: 2.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Adds space between Name, Type, and Button */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Space between the label and the input */
+}
+
+/* Fix the grid layout so the form and list sit side-by-side */
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* 40% for form, 60% for list */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.category-card {
+    background: #1e1e1e;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Label Chips Styling */
+.label-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.label-item {
+    background: #2a2a2a;
+    padding: 10px 18px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #333;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.save-btn {
+    margin-top: 1rem; /* The specific spacing you asked for */
+    width: 100%;
+    padding: 12px;
+    background: #00ff88;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.save-btn:hover {
+    background: #00e67a;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+}
