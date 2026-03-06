@@ -16,7 +16,7 @@ import { Router, RouterLink } from '@angular/router';
 
 export class AddTransactionComponent implements OnInit {
   transactionForm: FormGroup;
-  categories: any[] = [];
+  categories: Category[] = [];
   filteredCategories: any[] = [];
   saveSuccess = false;
 
@@ -53,7 +53,14 @@ export class AddTransactionComponent implements OnInit {
   filterCategories(){
     const selectedType = this.transactionForm.get('type')?.value;
     this.filteredCategories = this.categories.filter(c => c.type === selectedType);
-    this.transactionForm.get('categoryId')?.setValue('');
+    
+    if (this.filteredCategories.length > 0) {
+      this.transactionForm
+        .get('categoryId')
+        ?.setValue(this.filteredCategories[0].id);
+    } else {
+      this.transactionForm.get('categoryId')?.setValue('');
+    }
   }
 
   onSubmit(){

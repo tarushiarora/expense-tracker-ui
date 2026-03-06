@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label>Category</label>
                     <select formControlName="categoryId">
-                        <option value="">Select Category</option>
+                        <option value="" disabled>Select a category</option>
                         @for (cat of filteredCategories; track cat.id) {
                         <option [value]="cat.id">{{ cat.name }}</option>
                         }
@@ -40,7 +40,7 @@
                     <label>Description</label>
                     <input type="text" formControlName="description" placeholder="What was this for?">
                 </div>
-
+                
                 <button type="submit" class="save-btn" [disabled]="transactionForm.invalid">
                     Save Transaction
                 </button>
