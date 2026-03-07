@@ -10,7 +10,7 @@ export class TransactionService {
   // using a header to send Jwt token
   // so that my spboot backend knows who's asking for their data
 
-  private apiUrl = '/api/transactions';
+  private apiUrl = 'https://expense-tracker-backend-ae11.onrender.com/api/transactions';
 
   constructor(private http: HttpClient) {}
 

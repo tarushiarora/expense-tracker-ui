@@ -6,7 +6,7 @@ import { Category } from '../models/transaction.model';
   providedIn: 'root',
 })
 export class CategoryService {
-  private apiUrl = '/api/categories';
+  private apiUrl = 'https://expense-tracker-backend-ae11.onrender.com/api/categories';
 
   constructor(private http: HttpClient) {}
 
